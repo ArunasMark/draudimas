@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cars;
+use App\Models\Owners;
 use Illuminate\Http\Request;
 
 class CarsController extends Controller
@@ -15,7 +16,8 @@ class CarsController extends Controller
     public function index()
     {
         $cars=Cars::all();
-        return view('cars.index',['cars'=>$cars]);
+        $owners=Owners::all();
+        return view('cars.index',['cars'=>$cars, 'owners'=>$owners]);
     }
 
     /**
@@ -25,7 +27,8 @@ class CarsController extends Controller
      */
     public function create()
     {
-        return view('cars.create');
+        $owners=Owners::all();
+        return view('cars.create',['owners'=>$owners]);
     }
 
     /**
@@ -40,6 +43,7 @@ class CarsController extends Controller
         $car->reg_number=$request->reg_number;
         $car->brand=$request->brand;
         $car->model=$request->model;
+        $car->owner_id=$request->owner_id;
         $car->save();
         return redirect()->route('cars.index');
     }
@@ -64,7 +68,8 @@ class CarsController extends Controller
      */
     public function edit(Cars $car)
     {
-        return view('cars.update', ['car'=>$car]);
+        $owners=Owners::all();
+        return view('cars.update', ['car'=>$car, 'owners'=>$owners]);
     }
 
     /**
@@ -79,6 +84,7 @@ class CarsController extends Controller
         $car->reg_number=$request->reg_number;
         $car->brand=$request->brand;
         $car->model=$request->model;
+        $car->owner_id=$request->owner_id;
         $car->save();
         return redirect()->route('cars.index');
     }

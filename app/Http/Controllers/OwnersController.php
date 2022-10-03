@@ -16,6 +16,7 @@ class OwnersController extends Controller
     {
         $owners=Owners::all();
         return view('owners.index',['owners'=>$owners]);
+
     }
 
     /**
@@ -39,7 +40,6 @@ class OwnersController extends Controller
         $owner=new Owners();
         $owner->name=$request->name;
         $owner->surname=$request->surname;
-
         $owner->save();
         return redirect()->route('owners.index');
     }

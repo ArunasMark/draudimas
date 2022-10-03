@@ -10,10 +10,12 @@
             <th scope="col">Id</th>
             <th scope="col">Name</th>
             <th scope="col">Surname</th>
+            <th scope="col">Savininko automobiliai</th>
             <th scope="col">Created at</th>
             <th scope="col">Update at</th>
             <th></th>
             <th></th>
+
         </tr>
         </thead>
         <tbody>
@@ -22,6 +24,11 @@
                 <th scope="row">{{$owner->id}}</th>
                 <td>{{$owner->name}}</td>
                 <td>{{$owner->surname}}</td>
+                <td></td>
+                {{--@foreach($owners->car as $owner_car)
+                    <td>{{$owner_car->brand}} {{$owner_car->model}}</td>
+                @endforeach--}}
+
                 <td>{{$owner->created_at}}</td>
                 <td>{{$owner->updated_at}}</td>
                 <td><a class="btn btn-warning" href="{{route('owners.edit', $owner->id)}}">Redaguoti</a></td>

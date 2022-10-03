@@ -12,7 +12,15 @@
         <label class="form-label mb-0" for="brand">A/m markė: </label>
         <input class="form-control mb-2" type="text" name="brand" required>
         <label class="form-label mb-0" for="model">A/m modelis: </label>
-        <input class="form-control" type="text" name="model" required>
+        <input class="form-control mb-2" type="text" name="model" required>
+        <label class="form-label mb-0" for="model">Savininko duomenys: </label>
+        <select class="form-select mb-2" name="owner_id">
+            <option selected>Pasirinkti</option>
+            @foreach($owners as $owner)
+            <option value="{{$owner->id}}">{{$owner->name}} {{$owner->surname}}</option>
+            @endforeach
+        </select>
+
         <button class="btn btn-secondary my-2">Pridėti</button>
     </form>
     <div class="text-center mb-2">

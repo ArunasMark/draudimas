@@ -11,7 +11,8 @@
         <th scope="col">Reg. number</th>
         <th scope="col">Brand</th>
         <th scope="col">Model</th>
-        <th scope="col">Owner id</th>
+        <th scope="col">Owner name</th>
+        <th scope="col">Owner surname</th>
         <th scope="col">Created at</th>
         <th scope="col">Update at</th>
         <th></th>
@@ -25,7 +26,8 @@
         <td>{{$car->reg_number}}</td>
         <td>{{$car->brand}}</td>
         <td>{{$car->model}}</td>
-        <td>{{$car->owner_id}}</td>
+        <td>{{$car->owner->name}}</td>
+        <td>{{$car->owner->surname}}</td>
         <td>{{$car->created_at}}</td>
         <td>{{$car->updated_at}}</td>
         <td><a class="btn btn-warning" href="{{route('cars.edit', $car->id)}}">Redaguoti</a></td>

@@ -14,7 +14,14 @@
         <label class="form-label mb-0" for="brand">A/m markė: </label>
         <input class="form-control mb-3" type="text" name="brand" value="{{ $car->brand }}">
         <label class="form-label mb-0" for="model">A/m modelis: </label>
-        <input class="form-control" type="text" name="model" value="{{ $car->model }}">
+        <input class="form-control mb-3" type="text" name="model" value="{{ $car->model }}">
+        <label for="" class="form-label">Pasirinkti savininka: </label>
+        <select class="form-control" name="owner_id">
+
+            @foreach($owners as $owner)
+                <option value="{{$owner->id}}" {{$car->owner_id == $owner->id ? 'selected' : ''}}>{{ $owner->name }} {{ $owner->surname }}</option>
+            @endforeach
+        </select>
         <button class="btn btn-secondary my-3">Redaguoti</button>
     </form>
 
