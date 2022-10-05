@@ -1,8 +1,10 @@
-@extends('layouts.main')
+@extends('layouts.app')
+
 @section('content')
 
-<h3 class="text-center ">A/m savininkai</h3>
-<div class="col-10 m-auto">
+
+<h3 class="text-center mb-3">A/m savininkai</h3>
+<div class="col-12 m-auto">
 
     <table class="table table-bordered border-dark  text-center">
         <thead>
@@ -10,6 +12,7 @@
             <th scope="col">Id</th>
             <th scope="col">Name</th>
             <th scope="col">Surname</th>
+            <th scope="col">Email</th>
             <th scope="col">Savininko automobiliai</th>
             <th scope="col">Created at</th>
             <th scope="col">Update at</th>
@@ -24,11 +27,14 @@
                 <th scope="row">{{$owner->id}}</th>
                 <td>{{$owner->name}}</td>
                 <td>{{$owner->surname}}</td>
-                <td></td>
-                {{--@foreach($owners->car as $owner_car)
-                    <td>{{$owner_car->brand}} {{$owner_car->model}}</td>
-                @endforeach--}}
+                <td>{{$owner->email}} </td>
 
+
+                    <td>
+                       {{-- @foreach($owner->cars as $car)
+                        {{$car->brand}} {{$car->model}}
+                        @endforeach--}}
+                    </td>
                 <td>{{$owner->created_at}}</td>
                 <td>{{$owner->updated_at}}</td>
                 <td><a class="btn btn-warning" href="{{route('owners.edit', $owner->id)}}">Redaguoti</a></td>
@@ -44,6 +50,7 @@
         @endforeach
         </tbody>
     </table>
+
 </div>
 
 @endsection

@@ -4,6 +4,7 @@ use App\Http\Controllers\CarsController;
 use App\Http\Controllers\OwnersController;
 use App\Models\Cars;
 use App\Models\Owners;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,13 +17,18 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+    Route::middleware('auth')->group(function (){
+        Route::resource('cars', CarsController::class);
+        Route::resource('owners', OwnersController::class);
+});
+    Route::get('/', function () {
+    return view('welcome');
+    });
 
-//Route::get('/cars',[CarsController::class,'index']);
-
-Route::resource('cars', CarsController::class);
 
 
 
-//Route::get('/owners', [OwnersController::class,'index']);
 
-Route::resource('owners', OwnersController::class);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

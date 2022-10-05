@@ -11,8 +11,25 @@
         @method('PUT')
         <label class="form-label mb-0 mt-3" for="name">A/m savininko vardas: </label>
         <input class="form-control mb-3" type="text" name="name" value="{{ $owner->name }}">
+        @error('name')
+        @foreach($errors->get('name') as $error)
+            <div class="text-danger fw-bold bg-warning  text-center">{{$error}}</div>
+        @endforeach
+        @enderror
         <label class="form-label mb-0" for="surname">A/m savininko pavardė: </label>
         <input class="form-control mb-3" type="text" name="surname" value="{{ $owner->surname }}">
+        @error('surname')
+        @foreach($errors->get('surname') as $error)
+            <div class="text-danger fw-bold bg-warning  text-center">{{$error}}</div>
+        @endforeach
+        @enderror
+        <label class="form-label mb-0" for="email">A/m savininko el. pastas: </label>
+        <input class="form-control mb-3" type="text" name="email" value="{{ $owner->email }}">
+        @error('email')
+        @foreach($errors->get('email') as $error)
+            <div class="text-danger fw-bold bg-warning  text-center">{{$error}}</div>
+        @endforeach
+        @enderror
 
         <button class="btn btn-secondary my-3">Redaguoti</button>
     </form>

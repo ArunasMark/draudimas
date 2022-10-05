@@ -11,10 +11,25 @@
         @method('PUT')
         <label class="form-label mb-0 mt-3" for="reg_number">A/m reg. numeris: </label>
         <input class="form-control mb-3" type="text" name="reg_number" value="{{ $car->reg_number }}">
+        @if($errors->has('reg_number'))
+            @foreach($errors->get('reg_number') as $error)
+                <div class="text-danger fw-bold bg-warning  text-center">{{$error}}</div>
+            @endforeach
+        @endif
         <label class="form-label mb-0" for="brand">A/m markė: </label>
         <input class="form-control mb-3" type="text" name="brand" value="{{ $car->brand }}">
+        @if($errors->has('brand'))
+            @foreach($errors->get('brand') as $error)
+                <div class="text-danger fw-bold bg-warning  text-center">{{$error}}</div>
+            @endforeach
+        @endif
         <label class="form-label mb-0" for="model">A/m modelis: </label>
         <input class="form-control mb-3" type="text" name="model" value="{{ $car->model }}">
+        @if($errors->has('model'))
+            @foreach($errors->get('model') as $error)
+                <div class="text-danger fw-bold bg-warning  text-center">{{$error}}</div>
+            @endforeach
+        @endif
         <label for="" class="form-label">Pasirinkti savininka: </label>
         <select class="form-control" name="owner_id">
 

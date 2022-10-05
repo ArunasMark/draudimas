@@ -39,6 +39,11 @@ class CarsController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate(['reg_number'=>'required|string|min:2|max:6|unique:App\Models\Cars,reg_number|alpha_num|regex:/[A-Z0-9
+        ]+/'] );
+        $request->validate(['brand'=>'required|min:2'] );
+        $request->validate(['model'=>'required|min:2'] );
+        $request->validate(['owner_id'=>'required'] );
         $car=new Cars();
         $car->reg_number=$request->reg_number;
         $car->brand=$request->brand;
@@ -81,6 +86,11 @@ class CarsController extends Controller
      */
     public function update(Request $request, Cars $car)
     {
+        $request->validate(['reg_number'=>'required|string|min:2|max:6|unique:App\Models\Cars,reg_number|alpha_num|regex:/[A-Z0-9
+        ]+/'] );
+        $request->validate(['brand'=>'required|min:2'] );
+        $request->validate(['model'=>'required|min:2'] );
+        $request->validate(['owner_id'=>'required'] );
         $car->reg_number=$request->reg_number;
         $car->brand=$request->brand;
         $car->model=$request->model;

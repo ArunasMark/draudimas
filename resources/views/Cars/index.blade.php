@@ -1,8 +1,8 @@
-@extends('layouts.main')
+@extends('layouts.app')
 @section('content')
 
 <h3 class="text-center mt-1 ">Automobiliai</h3>
-<div class="col-10 m-auto">
+<div class="col-12 m-auto px-3">
 
 <table class="table table-bordered border-dark mt-3 text-center">
     <thead>
