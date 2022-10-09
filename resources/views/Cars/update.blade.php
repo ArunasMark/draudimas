@@ -5,7 +5,7 @@
 
 <div class="m-auto border border-primary col-3 bg-info">
 
-    <form class="text-center mx-3" action="{{ route('cars.update', $car->id) }}" method="post">
+    <form class="text-center mx-3" action="{{ route('cars.update', $car->id) }}" method="post" enctype="multipart/form-data">
 
         @csrf
         @method('PUT')
@@ -30,7 +30,11 @@
                 <div class="text-danger fw-bold bg-warning  text-center">{{$error}}</div>
             @endforeach
         @endif
-        <label for="" class="form-label">Pasirinkti savininka: </label>
+
+        <label class="form-label mb-0" for="img">A/m foto: </label>
+        <input class="form-control mb-3" type="file" name="img" value="{{$car->images}}" multiple>
+
+        <label for="owner_id" class="form-label">Pasirinkti savininka: </label>
         <select class="form-control" name="owner_id">
 
             @foreach($owners as $owner)

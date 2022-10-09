@@ -6,7 +6,16 @@
 <h3 class="text-center mb-3">A/m savininkai</h3>
 <div class="col-12 m-auto">
 
-    <table class="table table-bordered border-dark  text-center">
+        <ul class="nav ">
+
+            <li class="nav-item">
+                <a class="btn btn-outline-secondary border " href="{{route('owners.create')}}">Pridėti naują a/m savininką</a>
+            </li>
+
+
+        </ul>
+
+    <table class="table table-bordered border-dark mt-3  text-center">
         <thead>
         <tr class="bg-black bg-opacity-25">
             <th scope="col">Id</th>

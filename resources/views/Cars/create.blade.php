@@ -31,6 +31,12 @@
                     <div class="text-danger fw-bold bg-warning  text-center">{{$error}}</div>
                 @endforeach
             @endif
+
+            <label class="form-label mb-0" for="img">A/m foto: </label>
+            <input class="form-control mb-3" type="file" name="img" multiple>
+
+
+
             <label class="form-label mb-0" for="model">Savininko duomenys: </label>
             <select class="form-select mb-2" name="owner_id" required>
                 <option selected>Pasirinkti</option>

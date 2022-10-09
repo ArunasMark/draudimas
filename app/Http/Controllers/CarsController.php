@@ -86,7 +86,7 @@ class CarsController extends Controller
      */
     public function update(Request $request, Cars $car)
     {
-        $request->validate(['reg_number'=>'required|string|min:2|max:6|unique:App\Models\Cars,reg_number|alpha_num|regex:/[A-Z0-9
+        $request->validate(['reg_number'=>'required|string|min:2|max:6|alpha_num|regex:/[A-Z0-9
         ]+/'] );
         $request->validate(['brand'=>'required|min:2'] );
         $request->validate(['model'=>'required|min:2'] );
@@ -94,6 +94,10 @@ class CarsController extends Controller
         $car->reg_number=$request->reg_number;
         $car->brand=$request->brand;
         $car->model=$request->model;
+
+        $filename=$car->brand.' '.$car->model.'.'.$request->file('img')->extension();
+        $car->images=$filename;
+        $request->file('img')->storeAs('public/carsfoto', $filename);
         $car->owner_id=$request->owner_id;
         $car->save();
         return redirect()->route('cars.index');

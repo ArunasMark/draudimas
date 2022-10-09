@@ -41,7 +41,7 @@ class OwnersController extends Controller
     {
         $request->validate(['name'=>'required|string|min:2|alpha'] );
         $request->validate(['surname'=>'required|string|min:2|alpha'] );
-        $request->validate(['email'=>'required|email'] );
+        $request->validate(['email'=>'required|email|unique:App\Models\Owners,email'] );
 
         $owner=new Owners();
         $owner->name=$request->name;
@@ -84,7 +84,7 @@ class OwnersController extends Controller
     {
         $request->validate(['name'=>'required|string|min:2|alpha'] );
         $request->validate(['surname'=>'required|string|min:2|alpha'] );
-        $request->validate(['email'=>'required|email'] );
+        $request->validate(['email'=>'required|email|unique:App\Models\Owners,email'] );
         $owner->name=$request->name;
         $owner->surname=$request->surname;
         $owner->email=$request->email;
