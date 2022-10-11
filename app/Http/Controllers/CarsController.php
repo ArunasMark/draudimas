@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Gate;
 use App\Models\Cars;
 use App\Models\Owners;
+//use Illuminate\Auth\Access\Gate;
 use Illuminate\Http\Request;
 
 class CarsController extends Controller
@@ -91,6 +92,10 @@ class CarsController extends Controller
         $request->validate(['brand'=>'required|min:2'] );
         $request->validate(['model'=>'required|min:2'] );
         $request->validate(['owner_id'=>'required'] );
+        if (Gate::denies('edit')){
+            return redirect()->route('cars.index');
+
+        }
         $car->reg_number=$request->reg_number;
         $car->brand=$request->brand;
         $car->model=$request->model;
